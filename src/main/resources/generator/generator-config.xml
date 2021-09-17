@@ -41,17 +41,14 @@
 
         <!-- mapper类的位置 -->
         <javaClientGenerator targetProject="src\main\java"
-                             targetPackage="com.august.hang_around.mapper"
+                             targetPackage="com.august.cms.mapper"
                              type="XMLMAPPER"/>
-        <table tableName="goods_info"/>
-        <!--<table tableName="demo" domainObjectName="Demo"/>-->
-        <!--<table tableName="ebook"/>-->
-        <!--<table tableName="category"/>-->
-        <!--<table tableName="doc"/>-->
-        <!--<table tableName="content"/>-->
-        <!--        <table tableName="user"/>-->
-        <!--                <table tableName="u_goods"/>-->
-        <!--        <table tableName="goods_collection"/>-->
+<!--        <table tableName="user_info"/>-->
+<!--        <table tableName="menus"/>-->
+<!--        <table tableName="sub_menus"/>-->
+<!--        <table tableName="user_role"/>-->
+<!--        <table tableName="role_info"/>-->
+<!--        <table tableName="role_menus"/>-->
 
 
     </context>
