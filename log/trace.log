@@ -3671,3 +3671,143 @@ Caused by: java.lang.ClassNotFoundException: com.august.cms.service.UserService
 2021-09-22 20:22:32.734 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
 2021-09-22 20:22:32.735 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
 2021-09-22 20:22:32.735 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:25:15.723 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:25:15.831 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:25:15.831 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:25:15.932 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:25:15.932 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:25:15.934 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:25:16.011 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:25:16.011 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:25:16.012 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:25:16.012 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:25:16.021 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:25:16.021 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 188 ms
+2021-09-22 20:25:16.188 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:25:16.336 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:25:16.343 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:25:16.345 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:25:16.347 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.537 seconds (JVM running for 1080.037)
+2021-09-22 20:25:16.348 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:25:16.349 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:25:16.349 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:28:20.707 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:28:20.826 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:28:20.827 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:28:20.935 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:28:20.935 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:28:20.936 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:28:21.022 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:28:21.022 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:28:21.022 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:28:21.023 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:28:21.033 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:28:21.033 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 205 ms
+2021-09-22 20:28:21.217 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:28:21.372 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:28:21.379 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:28:21.381 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:28:21.384 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.58 seconds (JVM running for 1265.074)
+2021-09-22 20:28:21.386 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:28:21.386 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:28:21.387 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:28:23.174 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:28:23.261 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:28:23.262 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:28:23.357 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:28:23.357 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:28:23.358 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:28:23.424 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:28:23.424 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:28:23.425 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:28:23.425 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:28:23.434 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:28:23.434 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 170 ms
+2021-09-22 20:28:23.597 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:28:23.741 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:28:23.748 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:28:23.750 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:28:23.753 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.511 seconds (JVM running for 1267.443)
+2021-09-22 20:28:23.753 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:28:23.754 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:28:23.754 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:33:34.477 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:33:34.592 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:33:34.592 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:33:34.690 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:33:34.690 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:33:34.691 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:33:34.767 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:33:34.767 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:33:34.767 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:33:34.767 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:33:34.776 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:33:34.776 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 182 ms
+2021-09-22 20:33:34.946 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:33:35.089 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:33:35.096 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:33:35.098 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:33:35.100 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.527 seconds (JVM running for 1578.791)
+2021-09-22 20:33:35.101 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:33:35.101 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:33:35.102 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:33:40.961 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:33:41.031 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:33:41.032 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:33:41.127 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:33:41.127 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:33:41.128 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:33:41.194 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:33:41.194 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:33:41.195 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:33:41.195 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:33:41.204 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:33:41.204 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 171 ms
+2021-09-22 20:33:41.371 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:33:41.522 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:33:41.529 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:33:41.530 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:33:41.533 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.52 seconds (JVM running for 1585.224)
+2021-09-22 20:33:41.534 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:33:41.534 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:33:41.534 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:35:16.300 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:35:16.498 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:35:16.499 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:35:16.667 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:35:16.667 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:35:16.668 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:35:16.844 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:35:16.845 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:35:16.845 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:35:16.845 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:35:16.858 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:35:16.858 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 357 ms
+2021-09-22 20:35:17.072 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:35:17.430 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:35:17.451 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:35:17.454 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:35:17.457 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.982 seconds (JVM running for 1681.147)
+2021-09-22 20:35:17.459 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:35:17.459 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:35:17.459 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:35:19.586 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:35:19.756 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:35:19.757 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:35:19.918 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:35:19.918 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:35:19.919 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:35:20.024 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:35:20.024 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:35:20.024 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:35:20.025 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:35:20.035 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:35:20.035 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 276 ms
+2021-09-22 20:35:20.226 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:35:20.372 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:35:20.378 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:35:20.380 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:35:20.382 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 0.668 seconds (JVM running for 1684.073)
+2021-09-22 20:35:20.383 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
+2021-09-22 20:35:20.384 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:35:20.384 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
