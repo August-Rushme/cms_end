@@ -1,34 +1,34 @@
 package com.august.cms.domain;
 
-public class RoleMenus {
-    private Integer id;
+public class RoleMenu {
+    private Long id;
 
-    private Integer roleId;
+    private Long roleId;
 
-    private Integer menusId;
+    private Long menuId;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 
-    public Integer getMenusId() {
-        return menusId;
+    public Long getMenuId() {
+        return menuId;
     }
 
-    public void setMenusId(Integer menusId) {
-        this.menusId = menusId;
+    public void setMenuId(Long menuId) {
+        this.menuId = menuId;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class RoleMenus {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", roleId=").append(roleId);
-        sb.append(", menusId=").append(menusId);
+        sb.append(", menuId=").append(menuId);
         sb.append("]");
         return sb.toString();
     }

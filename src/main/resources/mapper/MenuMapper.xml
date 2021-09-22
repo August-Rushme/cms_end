@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.august.cms.mapper.UserInfoMapper">
-  <resultMap id="BaseResultMap" type="com.august.cms.domain.UserInfo">
+<mapper namespace="com.august.cms.mapper.MenuMapper">
+  <resultMap id="BaseResultMap" type="com.august.cms.domain.Menu">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="realname" jdbcType="VARCHAR" property="realname" />
-    <result column="cellphone" jdbcType="VARCHAR" property="cellphone" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="createdAt" jdbcType="TIMESTAMP" property="createdat" />
     <result column="updatedAt" jdbcType="TIMESTAMP" property="updatedat" />
     <result column="statuts" jdbcType="VARCHAR" property="statuts" />
@@ -71,15 +73,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, `password`, realname, cellphone, email, createdAt, updatedAt, statuts
+    id, parent_id, `name`, `path`, permission, `type`, icon, sort, createdAt, updatedAt, 
+    statuts
   </sql>
-  <select id="selectByExample" parameterType="com.august.cms.domain.UserInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.august.cms.domain.MenuExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_info
+    from menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,49 +93,55 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_info
+    from menu
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from user_info
+    delete from menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.august.cms.domain.UserInfoExample">
-    delete from user_info
+  <delete id="deleteByExample" parameterType="com.august.cms.domain.MenuExample">
+    delete from menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.august.cms.domain.UserInfo">
-    insert into user_info (id, username, `password`, 
-      realname, cellphone, email, 
-      createdAt, updatedAt, statuts
-      )
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{realname,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{createdat,jdbcType=TIMESTAMP}, #{updatedat,jdbcType=TIMESTAMP}, #{statuts,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.august.cms.domain.Menu">
+    insert into menu (id, parent_id, `name`, 
+      `path`, permission, `type`, 
+      icon, sort, createdAt, 
+      updatedAt, statuts)
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{path,jdbcType=VARCHAR}, #{permission,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{statuts,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.august.cms.domain.UserInfo">
-    insert into user_info
+  <insert id="insertSelective" parameterType="com.august.cms.domain.Menu">
+    insert into menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="username != null">
-        username,
+      <if test="parentId != null">
+        parent_id,
       </if>
-      <if test="password != null">
-        `password`,
+      <if test="name != null">
+        `name`,
       </if>
-      <if test="realname != null">
-        realname,
+      <if test="path != null">
+        `path`,
       </if>
-      <if test="cellphone != null">
-        cellphone,
+      <if test="permission != null">
+        permission,
       </if>
-      <if test="email != null">
-        email,
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="sort != null">
+        sort,
       </if>
       <if test="createdat != null">
         createdAt,
@@ -148,20 +157,26 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
       </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="realname != null">
-        #{realname,jdbcType=VARCHAR},
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
       </if>
-      <if test="cellphone != null">
-        #{cellphone,jdbcType=VARCHAR},
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
       </if>
       <if test="createdat != null">
         #{createdat,jdbcType=TIMESTAMP},
@@ -174,32 +189,38 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.august.cms.domain.UserInfoExample" resultType="java.lang.Long">
-    select count(*) from user_info
+  <select id="countByExample" parameterType="com.august.cms.domain.MenuExample" resultType="java.lang.Long">
+    select count(*) from menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_info
+    update menu
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.username != null">
-        username = #{record.username,jdbcType=VARCHAR},
+      <if test="record.parentId != null">
+        parent_id = #{record.parentId,jdbcType=BIGINT},
       </if>
-      <if test="record.password != null">
-        `password` = #{record.password,jdbcType=VARCHAR},
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.realname != null">
-        realname = #{record.realname,jdbcType=VARCHAR},
+      <if test="record.path != null">
+        `path` = #{record.path,jdbcType=VARCHAR},
       </if>
-      <if test="record.cellphone != null">
-        cellphone = #{record.cellphone,jdbcType=VARCHAR},
+      <if test="record.permission != null">
+        permission = #{record.permission,jdbcType=VARCHAR},
       </if>
-      <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR},
+      <if test="record.type != null">
+        `type` = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.icon != null">
+        icon = #{record.icon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
       </if>
       <if test="record.createdat != null">
         createdAt = #{record.createdat,jdbcType=TIMESTAMP},
@@ -216,13 +237,15 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_info
+    update menu
     set id = #{record.id,jdbcType=BIGINT},
-      username = #{record.username,jdbcType=VARCHAR},
-      `password` = #{record.password,jdbcType=VARCHAR},
-      realname = #{record.realname,jdbcType=VARCHAR},
-      cellphone = #{record.cellphone,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=BIGINT},
+      `name` = #{record.name,jdbcType=VARCHAR},
+      `path` = #{record.path,jdbcType=VARCHAR},
+      permission = #{record.permission,jdbcType=VARCHAR},
+      `type` = #{record.type,jdbcType=INTEGER},
+      icon = #{record.icon,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=INTEGER},
       createdAt = #{record.createdat,jdbcType=TIMESTAMP},
       updatedAt = #{record.updatedat,jdbcType=TIMESTAMP},
       statuts = #{record.statuts,jdbcType=VARCHAR}
@@ -230,23 +253,29 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.august.cms.domain.UserInfo">
-    update user_info
+  <update id="updateByPrimaryKeySelective" parameterType="com.august.cms.domain.Menu">
+    update menu
     <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
       </if>
-      <if test="password != null">
-        `password` = #{password,jdbcType=VARCHAR},
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="realname != null">
-        realname = #{realname,jdbcType=VARCHAR},
+      <if test="path != null">
+        `path` = #{path,jdbcType=VARCHAR},
       </if>
-      <if test="cellphone != null">
-        cellphone = #{cellphone,jdbcType=VARCHAR},
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
       </if>
       <if test="createdat != null">
         createdAt = #{createdat,jdbcType=TIMESTAMP},
@@ -260,13 +289,15 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.august.cms.domain.UserInfo">
-    update user_info
-    set username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
-      realname = #{realname,jdbcType=VARCHAR},
-      cellphone = #{cellphone,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.august.cms.domain.Menu">
+    update menu
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      `path` = #{path,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
       createdAt = #{createdat,jdbcType=TIMESTAMP},
       updatedAt = #{updatedat,jdbcType=TIMESTAMP},
       statuts = #{statuts,jdbcType=VARCHAR}

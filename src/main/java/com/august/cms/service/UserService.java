@@ -1,6 +1,5 @@
 package com.august.cms.service;
-import com.august.cms.domain.UserInfo;
-import com.august.cms.domain.UserInfoExample;
+import com.august.cms.domain.*;
 import com.august.cms.exception.BusinessException;
 import com.august.cms.exception.BusinessExceptionCode;
 import com.august.cms.mapper.*;
@@ -9,6 +8,7 @@ import com.august.cms.resp.UserLoginResp;
 import com.august.cms.utils.CopyUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.repository.util.QueryExecutionConverters;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
@@ -28,21 +28,6 @@ public class UserService {
     @Resource
     UserInfoMapper userInfoMapper;
 
-    @Resource
-    MenusMapper menusMapper;
-
-    @Resource
-    SubMenusMapper subMenusMapper;
-
-    @Resource
-    RoleInfoMapper roleInfoMapper;
-
-    @Resource
-    UserRoleMapper userRoleMapper;
-
-    @Resource
-    RoleMenusMapper roleMenusMapper;
-
     /**
      * 查找用户名
      *
@@ -52,7 +37,7 @@ public class UserService {
     public UserInfo selectByUserName(String userName) {
         UserInfoExample userInfoExample = new UserInfoExample();
         UserInfoExample.Criteria criteria = userInfoExample.createCriteria();
-       criteria.andUserNameEqualTo(userName);
+        criteria.andUsernameEqualTo(userName);
         List<UserInfo> userList = userInfoMapper.selectByExample(userInfoExample);
         if (CollectionUtils.isEmpty(userList)) {
             return null;
@@ -70,17 +55,21 @@ public class UserService {
             LOG.info("用户名不存在, {}", req.getUserName());
             throw new BusinessException(BusinessExceptionCode.LOGIN_USER_ERROR);
         } else {
-            if (userDb.getUserPassword().equals(req.getUserPassword())) {
+            if (userDb.getPassword().equals(req.getUserPassword())) {
                 // 登录成功
+
                 UserLoginResp userLoginResp = CopyUtils.copy(userDb, UserLoginResp.class);
+                userLoginResp.setId(userDb.getId());
+                userLoginResp.setUserName(userDb.getUsername());
                 return userLoginResp;
             } else {
                 // 密码不对
-                LOG.info("密码不对, 输入密码：{}, 数据库密码：{}", req.getUserPassword(), userDb.getUserPassword());
+                LOG.info("密码不对, 输入密码：{}, 数据库密码：{}", req.getUserPassword(), userDb.getPassword());
                 throw new BusinessException(BusinessExceptionCode.LOGIN_USER_ERROR);
             }
         }
 
     }
+
 
 }
