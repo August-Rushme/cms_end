@@ -3587,3 +3587,45 @@ Caused by: java.lang.ClassNotFoundException: com.august.cms.service.UserService
 2021-09-22 18:05:28.178 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
 2021-09-22 18:05:28.178 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
 2021-09-22 18:05:28.178 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:07:17.896 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-09-22 20:07:17.903 INFO  com.august.cms.config.CmsApplication              :55   [32m                  [0;39m Starting CmsApplication using Java 1.8.0_282 on DESKTOP-B1HIM51 with PID 14536 (E:\ideaWorkSpace\CMS\target\classes started by 战神 in E:\ideaWorkSpace\CMS)
+2021-09-22 20:07:17.904 INFO  com.august.cms.config.CmsApplication              :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-09-22 20:07:17.947 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-22 20:07:17.948 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-22 20:07:18.480 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :250  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-22 20:07:18.482 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :128  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-22 20:07:18.503 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :188  [32m                  [0;39m Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2021-09-22 20:07:19.035 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-09-22 20:07:19.042 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:07:19.043 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-09-22 20:07:19.043 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-09-22 20:07:19.182 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-09-22 20:07:19.183 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 1235 ms
+2021-09-22 20:07:19.932 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-22 20:07:20.257 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-09-22 20:07:20.270 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-09-22 20:07:20.283 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-22 20:07:20.291 INFO  com.august.cms.config.CmsApplication              :61   [32m                  [0;39m Started CmsApplication in 2.797 seconds (JVM running for 3.981)
+2021-09-22 20:07:20.293 INFO  com.august.cms.config.CmsApplication              :24   [32m                  [0;39m server is running！！
+2021-09-22 20:07:20.293 INFO  com.august.cms.config.CmsApplication              :25   [32m                  [0;39m address: 	http://127.0.0.1:8081
+2021-09-22 20:07:38.897 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-22 20:07:38.897 INFO  org.springframework.web.servlet.DispatcherServlet :525  [32m                  [0;39m Initializing Servlet 'dispatcherServlet'
+2021-09-22 20:07:38.898 INFO  org.springframework.web.servlet.DispatcherServlet :547  [32m                  [0;39m Completed initialization in 1 ms
+2021-09-22 20:07:39.038 INFO  com.august.cms.aspect.LogAspect                   :51   [32m                  [0;39m ------------- 开始 -------------
+2021-09-22 20:07:39.040 INFO  com.august.cms.aspect.LogAspect                   :52   [32m                  [0;39m 请求地址: http://127.0.0.1:8081/api/v1/user/login POST
+2021-09-22 20:07:39.041 INFO  com.august.cms.aspect.LogAspect                   :53   [32m                  [0;39m 类名方法: com.august.cms.controller.UserController.login
+2021-09-22 20:07:39.042 INFO  com.august.cms.aspect.LogAspect                   :54   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-09-22 20:07:39.106 INFO  com.august.cms.aspect.LogAspect                   :75   [32m                  [0;39m 请求参数: [{"userName":"august","userPassword":"123456a"}]
+2021-09-22 20:07:39.167 INFO  com.zaxxer.hikari.HikariDataSource                :110  [32m                  [0;39m HikariPool-1 - Starting...
+2021-09-22 20:07:39.626 INFO  com.zaxxer.hikari.HikariDataSource                :123  [32m                  [0;39m HikariPool-1 - Start completed.
+2021-09-22 20:07:39.676 INFO  com.august.cms.controller.UserController          :43   [32m                  [0;39m 生成一个24h的登录token：a6dec110-dc06-4f1a-a83a-ebe0eabd6958，并放入redis中
+2021-09-22 20:07:39.701 INFO  com.august.cms.aspect.LogAspect                   :87   [32m                  [0;39m 返回结果: {"data":{"id":1,"token":"a6dec110-dc06-4f1a-a83a-ebe0eabd6958","userName":"august"},"success":true}
+2021-09-22 20:07:39.702 INFO  com.august.cms.aspect.LogAspect                   :88   [32m                  [0;39m ------------- 结束 耗时：665 ms -------------
+2021-09-22 20:07:44.619 INFO  com.august.cms.aspect.LogAspect                   :51   [32m                  [0;39m ------------- 开始 -------------
+2021-09-22 20:07:44.619 INFO  com.august.cms.aspect.LogAspect                   :52   [32m                  [0;39m 请求地址: http://127.0.0.1:8081/api/v1/user/login POST
+2021-09-22 20:07:44.619 INFO  com.august.cms.aspect.LogAspect                   :53   [32m                  [0;39m 类名方法: com.august.cms.controller.UserController.login
+2021-09-22 20:07:44.619 INFO  com.august.cms.aspect.LogAspect                   :54   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-09-22 20:07:44.620 INFO  com.august.cms.aspect.LogAspect                   :75   [32m                  [0;39m 请求参数: [{"userName":"august","userPassword":"123456a"}]
+2021-09-22 20:07:44.625 INFO  com.august.cms.controller.UserController          :43   [32m                  [0;39m 生成一个24h的登录token：d2967067-2ec7-479c-8677-2e2fa3630b53，并放入redis中
+2021-09-22 20:07:44.626 INFO  com.august.cms.aspect.LogAspect                   :87   [32m                  [0;39m 返回结果: {"data":{"id":1,"token":"d2967067-2ec7-479c-8677-2e2fa3630b53","userName":"august"},"success":true}
+2021-09-22 20:07:44.627 INFO  com.august.cms.aspect.LogAspect                   :88   [32m                  [0;39m ------------- 结束 耗时：8 ms -------------
