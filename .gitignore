@@ -1,13 +1,15 @@
-
-target/
 log/
+<<<<<<< HEAD
 */error.log
 */trace.log
 *.log
+=======
+target/
+>>>>>>> main
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+log/*
 ### STS ###
 .apt_generated
 .classpath
@@ -22,7 +24,6 @@ log/
 *.iws
 *.iml
 *.ipr
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

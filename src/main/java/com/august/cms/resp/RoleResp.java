@@ -1,8 +1,14 @@
-package com.august.cms.domain;
+package com.august.cms.resp;
 
 import java.util.Date;
 
-public class Role {
+/**
+ * @author August
+ * @date 2021/9/23 8:47
+ * @lastEditors: August
+ * @version:1.0
+ */
+public class RoleResp {
     private Integer id;
 
     private String name;

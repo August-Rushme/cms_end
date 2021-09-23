@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.august.cms.mapper.MenuMapper">
   <resultMap id="BaseResultMap" type="com.august.cms.domain.Menu">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="permission" jdbcType="VARCHAR" property="permission" />
@@ -90,15 +90,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from menu
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from menu
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.august.cms.domain.MenuExample">
     delete from menu
@@ -111,7 +111,7 @@
       `path`, permission, `type`, 
       icon, sort, createdAt, 
       updatedAt, statuts)
-    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{path,jdbcType=VARCHAR}, #{permission,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
       #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, 
       #{updatedat,jdbcType=TIMESTAMP}, #{statuts,jdbcType=VARCHAR})
@@ -155,10 +155,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="parentId != null">
-        #{parentId,jdbcType=BIGINT},
+        #{parentId,jdbcType=INTEGER},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -199,10 +199,10 @@
     update menu
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.parentId != null">
-        parent_id = #{record.parentId,jdbcType=BIGINT},
+        parent_id = #{record.parentId,jdbcType=INTEGER},
       </if>
       <if test="record.name != null">
         `name` = #{record.name,jdbcType=VARCHAR},
@@ -238,8 +238,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update menu
-    set id = #{record.id,jdbcType=BIGINT},
-      parent_id = #{record.parentId,jdbcType=BIGINT},
+    set id = #{record.id,jdbcType=INTEGER},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
       `name` = #{record.name,jdbcType=VARCHAR},
       `path` = #{record.path,jdbcType=VARCHAR},
       permission = #{record.permission,jdbcType=VARCHAR},
@@ -257,7 +257,7 @@
     update menu
     <set>
       <if test="parentId != null">
-        parent_id = #{parentId,jdbcType=BIGINT},
+        parent_id = #{parentId,jdbcType=INTEGER},
       </if>
       <if test="name != null">
         `name` = #{name,jdbcType=VARCHAR},
@@ -287,11 +287,11 @@
         statuts = #{statuts,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.august.cms.domain.Menu">
     update menu
-    set parent_id = #{parentId,jdbcType=BIGINT},
+    set parent_id = #{parentId,jdbcType=INTEGER},
       `name` = #{name,jdbcType=VARCHAR},
       `path` = #{path,jdbcType=VARCHAR},
       permission = #{permission,jdbcType=VARCHAR},
@@ -301,6 +301,6 @@
       createdAt = #{createdat,jdbcType=TIMESTAMP},
       updatedAt = #{updatedat,jdbcType=TIMESTAMP},
       statuts = #{statuts,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

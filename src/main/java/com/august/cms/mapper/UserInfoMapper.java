@@ -10,7 +10,7 @@ public interface UserInfoMapper {
 
     int deleteByExample(UserInfoExample example);
 
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(UserInfo record);
 
@@ -18,7 +18,7 @@ public interface UserInfoMapper {
 
     List<UserInfo> selectByExample(UserInfoExample example);
 
-    UserInfo selectByPrimaryKey(Long id);
+    UserInfo selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") UserInfo record, @Param("example") UserInfoExample example);
 
@@ -27,4 +27,6 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+    List<Integer> getMenuIds(Integer userId);
 }

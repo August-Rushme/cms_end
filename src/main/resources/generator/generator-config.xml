@@ -43,7 +43,7 @@
         <javaClientGenerator targetProject="src\main\java"
                              targetPackage="com.august.cms.mapper"
                              type="XMLMAPPER"/>
-        <table tableName="user_info"/>
+<!--        <table tableName="user_info"/>-->
 <!--        <table tableName="menu"/>-->
 <!--        <table tableName="user_role"/>-->
 <!--        <table tableName="role"/>-->

@@ -1,4 +1,5 @@
 package com.august.cms.interceptor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -6,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,10 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  * @version:1.0
  * 拦截器：于登录校验，权限校验，请求日志打印
  */
-
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-
     private static final Logger LOG = LoggerFactory.getLogger(LoginInterceptor.class);
 
     @Resource
@@ -43,7 +43,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         LOG.info("接口登录拦截：，path：{}", path);
 
         //获取header的token参数
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader("token");
         LOG.info("登录校验开始，token：{}", token);
         if (token == null || token.isEmpty()) {
             LOG.info("token为空，请求被拦截");
@@ -51,7 +51,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }
         Object object = redisTemplate.opsForValue().get(token);
-        if ("Beare "+object == null) {
+        if (object == null) {
             LOG.warn("token无效，请求被拦截");
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return false;

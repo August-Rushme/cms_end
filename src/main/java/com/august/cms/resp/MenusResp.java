@@ -1,8 +1,16 @@
-package com.august.cms.domain;
+package com.august.cms.resp;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class Menu {
+/**
+ * @author August
+ * @date 2021/9/23 11:31
+ * @lastEditors: August
+ * @version:1.0
+ */
+public class MenusResp {
     private Integer id;
 
     private Integer parentId;
@@ -24,6 +32,16 @@ public class Menu {
     private Date updatedat;
 
     private String statuts;
+
+    private List<MenusResp> children = new ArrayList<>();
+
+    public List<MenusResp> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<MenusResp> children) {
+        this.children = children;
+    }
 
     public Integer getId() {
         return id;
@@ -112,24 +130,22 @@ public class Menu {
     public void setStatuts(String statuts) {
         this.statuts = statuts;
     }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", parentId=").append(parentId);
-        sb.append(", name=").append(name);
-        sb.append(", path=").append(path);
-        sb.append(", permission=").append(permission);
-        sb.append(", type=").append(type);
-        sb.append(", icon=").append(icon);
-        sb.append(", sort=").append(sort);
-        sb.append(", createdat=").append(createdat);
-        sb.append(", updatedat=").append(updatedat);
-        sb.append(", statuts=").append(statuts);
-        sb.append("]");
-        return sb.toString();
+        return "MenusResp{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                ", permission='" + permission + '\'' +
+                ", type=" + type +
+                ", icon='" + icon + '\'' +
+                ", sort=" + sort +
+                ", createdat=" + createdat +
+                ", updatedat=" + updatedat +
+                ", statuts='" + statuts + '\'' +
+                ", children=" + children +
+                '}';
     }
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.august.cms.mapper.UserInfoMapper">
   <resultMap id="BaseResultMap" type="com.august.cms.domain.UserInfo">
-    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="realname" jdbcType="VARCHAR" property="realname" />
@@ -87,15 +87,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.august.cms.domain.UserInfoExample">
     delete from user_info
@@ -108,7 +108,7 @@
       realname, cellphone, email, 
       createdAt, updatedAt, statuts
       )
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{realname,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{createdat,jdbcType=TIMESTAMP}, #{updatedat,jdbcType=TIMESTAMP}, #{statuts,jdbcType=VARCHAR}
       )
@@ -146,7 +146,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -184,7 +184,7 @@
     update user_info
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
@@ -217,7 +217,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update user_info
-    set id = #{record.id,jdbcType=BIGINT},
+    set id = #{record.id,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       `password` = #{record.password,jdbcType=VARCHAR},
       realname = #{record.realname,jdbcType=VARCHAR},
@@ -258,7 +258,7 @@
         statuts = #{statuts,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.august.cms.domain.UserInfo">
     update user_info
@@ -270,6 +270,16 @@
       createdAt = #{createdat,jdbcType=TIMESTAMP},
       updatedAt = #{updatedat,jdbcType=TIMESTAMP},
       statuts = #{statuts,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getMenuIds" resultType="java.lang.Integer">
+    SELECT
+      DISTINCT rm.menu_id
+    FROM
+      user_role ur
+        LEFT JOIN role_menu rm ON ur.role_id = rm.role_id
+
+    WHERE ur.user_id = #{userId}
+
+  </select>
 </mapper>

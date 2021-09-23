@@ -1,5 +1,6 @@
 package com.august.cms.resp;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -9,17 +10,17 @@ import java.util.Date;
  * @version:1.0
  */
 public class UserLoginResp {
-    private Long  id;
+    private Integer id;
 
     private String userName;
 
     private String token;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

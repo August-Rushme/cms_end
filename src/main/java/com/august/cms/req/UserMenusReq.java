@@ -1,11 +1,17 @@
-package com.august.cms.domain;
+package com.august.cms.req;
 
 import java.util.Date;
 
-public class Menu {
+/**
+ * @author August
+ * @date 2021/9/22 21:04
+ * @lastEditors: August
+ * @version:1.0
+ */
+public class UserMenusReq {
     private Integer id;
 
-    private Integer parentId;
+    private Long parentId;
 
     private String name;
 
@@ -33,11 +39,11 @@ public class Menu {
         this.id = id;
     }
 
-    public Integer getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(Integer parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
@@ -112,6 +118,7 @@ public class Menu {
     public void setStatuts(String statuts) {
         this.statuts = statuts;
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
