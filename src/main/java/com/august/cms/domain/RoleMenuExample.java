@@ -3,14 +3,14 @@ package com.august.cms.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoleMenusExample {
+public class RoleMenuExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public RoleMenusExample() {
+    public RoleMenuExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -224,63 +224,63 @@ public class RoleMenusExample {
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdIsNull() {
-            addCriterion("menus_id is null");
+        public Criteria andMenuIdIsNull() {
+            addCriterion("menu_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdIsNotNull() {
-            addCriterion("menus_id is not null");
+        public Criteria andMenuIdIsNotNull() {
+            addCriterion("menu_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdEqualTo(Integer value) {
-            addCriterion("menus_id =", value, "menusId");
+        public Criteria andMenuIdEqualTo(Integer value) {
+            addCriterion("menu_id =", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdNotEqualTo(Integer value) {
-            addCriterion("menus_id <>", value, "menusId");
+        public Criteria andMenuIdNotEqualTo(Integer value) {
+            addCriterion("menu_id <>", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdGreaterThan(Integer value) {
-            addCriterion("menus_id >", value, "menusId");
+        public Criteria andMenuIdGreaterThan(Integer value) {
+            addCriterion("menu_id >", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("menus_id >=", value, "menusId");
+        public Criteria andMenuIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("menu_id >=", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdLessThan(Integer value) {
-            addCriterion("menus_id <", value, "menusId");
+        public Criteria andMenuIdLessThan(Integer value) {
+            addCriterion("menu_id <", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdLessThanOrEqualTo(Integer value) {
-            addCriterion("menus_id <=", value, "menusId");
+        public Criteria andMenuIdLessThanOrEqualTo(Integer value) {
+            addCriterion("menu_id <=", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdIn(List<Integer> values) {
-            addCriterion("menus_id in", values, "menusId");
+        public Criteria andMenuIdIn(List<Integer> values) {
+            addCriterion("menu_id in", values, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdNotIn(List<Integer> values) {
-            addCriterion("menus_id not in", values, "menusId");
+        public Criteria andMenuIdNotIn(List<Integer> values) {
+            addCriterion("menu_id not in", values, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdBetween(Integer value1, Integer value2) {
-            addCriterion("menus_id between", value1, value2, "menusId");
+        public Criteria andMenuIdBetween(Integer value1, Integer value2) {
+            addCriterion("menu_id between", value1, value2, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andMenusIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("menus_id not between", value1, value2, "menusId");
+        public Criteria andMenuIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("menu_id not between", value1, value2, "menuId");
             return (Criteria) this;
         }
     }

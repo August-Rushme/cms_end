@@ -1,11 +1,11 @@
 package com.august.cms.domain;
 
-public class RoleMenus {
+public class RoleMenu {
     private Integer id;
 
     private Integer roleId;
 
-    private Integer menusId;
+    private Integer menuId;
 
     public Integer getId() {
         return id;
@@ -23,12 +23,12 @@ public class RoleMenus {
         this.roleId = roleId;
     }
 
-    public Integer getMenusId() {
-        return menusId;
+    public Integer getMenuId() {
+        return menuId;
     }
 
-    public void setMenusId(Integer menusId) {
-        this.menusId = menusId;
+    public void setMenuId(Integer menuId) {
+        this.menuId = menuId;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class RoleMenus {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", roleId=").append(roleId);
-        sb.append(", menusId=").append(menusId);
+        sb.append(", menuId=").append(menuId);
         sb.append("]");
         return sb.toString();
     }

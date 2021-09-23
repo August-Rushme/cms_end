@@ -5,8 +5,6 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
-    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, role_id, role_name, `status`
+    id, user_id, role_id
   </sql>
   <select id="selectByExample" parameterType="com.august.cms.domain.UserRoleExample" resultMap="BaseResultMap">
     select
@@ -100,10 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.august.cms.domain.UserRole">
-    insert into user_role (id, user_id, role_id, 
-      role_name, `status`)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, 
-      #{roleName,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+    insert into user_role (id, user_id, role_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.august.cms.domain.UserRole">
     insert into user_role
@@ -117,12 +115,6 @@
       <if test="roleId != null">
         role_id,
       </if>
-      <if test="roleName != null">
-        role_name,
-      </if>
-      <if test="status != null">
-        `status`,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -133,12 +125,6 @@
       </if>
       <if test="roleId != null">
         #{roleId,jdbcType=INTEGER},
-      </if>
-      <if test="roleName != null">
-        #{roleName,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -160,12 +146,6 @@
       <if test="record.roleId != null">
         role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
-      <if test="record.roleName != null">
-        role_name = #{record.roleName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null">
-        `status` = #{record.status,jdbcType=VARCHAR},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -175,9 +155,7 @@
     update user_role
     set id = #{record.id,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=INTEGER},
-      role_id = #{record.roleId,jdbcType=INTEGER},
-      role_name = #{record.roleName,jdbcType=VARCHAR},
-      `status` = #{record.status,jdbcType=VARCHAR}
+      role_id = #{record.roleId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -191,21 +169,13 @@
       <if test="roleId != null">
         role_id = #{roleId,jdbcType=INTEGER},
       </if>
-      <if test="roleName != null">
-        role_name = #{roleName,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        `status` = #{status,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.august.cms.domain.UserRole">
     update user_role
     set user_id = #{userId,jdbcType=INTEGER},
-      role_id = #{roleId,jdbcType=INTEGER},
-      role_name = #{roleName,jdbcType=VARCHAR},
-      `status` = #{status,jdbcType=VARCHAR}
+      role_id = #{roleId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -2,25 +2,24 @@ package com.august.cms.domain;
 
 import java.util.Date;
 
-/**
- * @author 战神
- */
 public class UserInfo {
     private Integer id;
 
-    private String userName;
+    private String username;
 
-    private String userPassword;
+    private String password;
 
-    private String userRealname;
+    private String realname;
 
-    private Date userCreatedat;
+    private String cellphone;
 
-    private Date userUpdateat;
+    private String email;
 
-    private String userEnable;
+    private Date createdat;
 
-    private Long userCellphone;
+    private Date updatedat;
+
+    private String statuts;
 
     public Integer getId() {
         return id;
@@ -30,60 +29,68 @@ public class UserInfo {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getUserRealname() {
-        return userRealname;
+    public String getRealname() {
+        return realname;
     }
 
-    public void setUserRealname(String userRealname) {
-        this.userRealname = userRealname;
+    public void setRealname(String realname) {
+        this.realname = realname;
     }
 
-    public Date getUserCreatedat() {
-        return userCreatedat;
+    public String getCellphone() {
+        return cellphone;
     }
 
-    public void setUserCreatedat(Date userCreatedat) {
-        this.userCreatedat = userCreatedat;
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
     }
 
-    public Date getUserUpdateat() {
-        return userUpdateat;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserUpdateat(Date userUpdateat) {
-        this.userUpdateat = userUpdateat;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUserEnable() {
-        return userEnable;
+    public Date getCreatedat() {
+        return createdat;
     }
 
-    public void setUserEnable(String userEnable) {
-        this.userEnable = userEnable;
+    public void setCreatedat(Date createdat) {
+        this.createdat = createdat;
     }
 
-    public Long getUserCellphone() {
-        return userCellphone;
+    public Date getUpdatedat() {
+        return updatedat;
     }
 
-    public void setUserCellphone(Long userCellphone) {
-        this.userCellphone = userCellphone;
+    public void setUpdatedat(Date updatedat) {
+        this.updatedat = updatedat;
+    }
+
+    public String getStatuts() {
+        return statuts;
+    }
+
+    public void setStatuts(String statuts) {
+        this.statuts = statuts;
     }
 
     @Override
@@ -93,13 +100,14 @@ public class UserInfo {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userName=").append(userName);
-        sb.append(", userPassword=").append(userPassword);
-        sb.append(", userRealname=").append(userRealname);
-        sb.append(", userCreatedat=").append(userCreatedat);
-        sb.append(", userUpdateat=").append(userUpdateat);
-        sb.append(", userEnable=").append(userEnable);
-        sb.append(", userCellphone=").append(userCellphone);
+        sb.append(", username=").append(username);
+        sb.append(", password=").append(password);
+        sb.append(", realname=").append(realname);
+        sb.append(", cellphone=").append(cellphone);
+        sb.append(", email=").append(email);
+        sb.append(", createdat=").append(createdat);
+        sb.append(", updatedat=").append(updatedat);
+        sb.append(", statuts=").append(statuts);
         sb.append("]");
         return sb.toString();
     }

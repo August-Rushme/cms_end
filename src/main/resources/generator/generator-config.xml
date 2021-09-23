@@ -44,11 +44,10 @@
                              targetPackage="com.august.cms.mapper"
                              type="XMLMAPPER"/>
 <!--        <table tableName="user_info"/>-->
-<!--        <table tableName="menus"/>-->
-<!--        <table tableName="sub_menus"/>-->
+<!--        <table tableName="menu"/>-->
 <!--        <table tableName="user_role"/>-->
-<!--        <table tableName="role_info"/>-->
-<!--        <table tableName="role_menus"/>-->
+<!--        <table tableName="role"/>-->
+<!--        <table tableName="role_menu"/>-->
 
 
     </context>
