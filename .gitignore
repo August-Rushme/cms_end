@@ -1,11 +1,5 @@
 log/
-<<<<<<< HEAD
-*/error.log
-*/trace.log
-*.log
-=======
 target/
->>>>>>> main
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -36,3 +30,5 @@ build/
 
 ### VS Code ###
 .vscode/
+# temp ignore
+*.log
