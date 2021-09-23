@@ -1,6 +1,9 @@
 
 target/
 log/
+*/error.log
+*/trace.log
+*.log
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
