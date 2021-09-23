@@ -37,7 +37,7 @@ public class RoleService {
 
         UserRoleExample userRoleExample = new UserRoleExample();
         UserRoleExample.Criteria criteria = userRoleExample.createCriteria();
-        criteria.andUserIdEqualTo(1);
+        criteria.andUserIdEqualTo(userId);
         List<UserRole> userRoles = userRoleMapper.selectByExample(userRoleExample);
         System.out.println(userRoles);
         UserRole userRole = userRoles.get(0);

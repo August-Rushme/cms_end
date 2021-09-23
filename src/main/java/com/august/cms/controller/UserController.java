@@ -3,6 +3,7 @@ package com.august.cms.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.august.cms.req.UserLoginReq;
 import com.august.cms.resp.CommonResp;
+import com.august.cms.resp.UserInfoResp;
 import com.august.cms.resp.UserLoginResp;
 import com.august.cms.service.UserService;
 import org.slf4j.Logger;
@@ -70,6 +71,19 @@ public class UserController {
         String userAuthorityInfo = userService.getUserAuthorityInfo(userId);
         String[] authorityInfoArray = StringUtils.tokenizeToStringArray(userAuthorityInfo, ",");
         resp.setData(authorityInfoArray);
+        return resp;
+    }
+
+    /**
+     * 根据id获取用户信息
+     * @param userId
+     * @return
+     */
+    @GetMapping("/userInfo/{userId}")
+        public CommonResp getUserInfo(@PathVariable Integer userId){
+        CommonResp<Object> resp = new CommonResp<>();
+        List<UserInfoResp> userInfo = userService.getUserInfo(userId);
+        resp.setData(userInfo);
         return resp;
     }
 }

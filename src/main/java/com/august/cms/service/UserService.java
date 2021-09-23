@@ -9,6 +9,7 @@ import com.august.cms.mapper.*;
 import com.august.cms.req.UserLoginReq;
 import com.august.cms.resp.MenusResp;
 import com.august.cms.resp.RoleResp;
+import com.august.cms.resp.UserInfoResp;
 import com.august.cms.resp.UserLoginResp;
 import com.august.cms.utils.CopyUtils;
 import org.slf4j.Logger;
@@ -111,5 +112,23 @@ public class UserService {
             authority = authority.concat(menuPerms);
         }
         return authority;
+    }
+
+    /**
+     * 获取用户信息
+     * @param userId
+     * @return
+     */
+    public List<UserInfoResp> getUserInfo(Integer userId){
+        UserInfoResp userInfoResp = new UserInfoResp();
+        UserInfoExample userInfoExample = new UserInfoExample();
+        UserInfoExample.Criteria criteria = userInfoExample.createCriteria();
+        criteria.andIdEqualTo(userId);
+        List<UserInfo> userInfos = userInfoMapper.selectByExample(userInfoExample);
+        List<RoleResp> role = roleService.getRole(userId);
+        System.out.println(role);
+        List<UserInfoResp> userInfoResps = CopyUtils.copyList(userInfos, UserInfoResp.class);
+        userInfoResps.get(0).setRole(role);
+        return userInfoResps;
     }
 }

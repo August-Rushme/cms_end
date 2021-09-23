@@ -1,6 +1,7 @@
 package com.august.cms.service;
 import com.august.cms.Dto.MenuDto;
 import com.august.cms.resp.MenusResp;
+import net.minidev.json.JSONUtil;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ public class MenuService {
             if (menu.getParentId() == 0) {
                 finalMenus.add(menu);
             }
+
         }
         return finalMenus;
 
