@@ -19,7 +19,7 @@ public class MenuService {
     UserService userService;
 
     /**
-     * 获取当前用户的菜单
+     * 获取当前用户的树状菜单
      * @param userId
      * @return
      */

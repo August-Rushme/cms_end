@@ -82,7 +82,7 @@ public class UserService {
 
     }
     /**
-     * 获取全部菜单
+     * 获取用户菜单
      */
      public List<MenusResp> getMenuList(Integer userId){
          List<Integer> menuIds = userInfoMapper.getMenuIds(userId);
