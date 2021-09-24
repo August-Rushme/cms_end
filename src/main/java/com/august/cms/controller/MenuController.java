@@ -90,7 +90,7 @@ public class MenuController {
             return resp;
         }
         menuService.removeById(id);
-        // 同步删除中间关联表
+        // 同步删除中间关联表中的menu_id
         menuService.removeRoleMenuId(id);
         resp.setMessage("删除成功");
         return resp;
