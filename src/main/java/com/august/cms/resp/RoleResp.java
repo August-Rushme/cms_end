@@ -1,6 +1,8 @@
 package com.august.cms.resp;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author August
@@ -22,6 +24,8 @@ public class RoleResp {
     private Date updated;
 
     private Integer statu;
+
+    private List<Integer> menuIds = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -79,20 +83,25 @@ public class RoleResp {
         this.statu = statu;
     }
 
+    public List<Integer> getMenuIds() {
+        return menuIds;
+    }
+
+    public void setMenuIds(List<Integer> menuIds) {
+        this.menuIds = menuIds;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", code=").append(code);
-        sb.append(", remark=").append(remark);
-        sb.append(", created=").append(created);
-        sb.append(", updated=").append(updated);
-        sb.append(", statu=").append(statu);
-        sb.append("]");
-        return sb.toString();
+        return "RoleResp{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", statu=" + statu +
+                ", menuIds=" + menuIds +
+                '}';
     }
 }

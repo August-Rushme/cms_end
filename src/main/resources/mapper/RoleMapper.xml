@@ -240,4 +240,14 @@
       statu = #{statu,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getMenuIds" resultType="java.lang.Integer">
+    SELECT
+      DISTINCT rm.menu_id
+    FROM
+      role r
+        LEFT JOIN role_menu rm ON r.id = rm.role_id
+
+    WHERE r.id = #{roleId}
+
+  </select>
 </mapper>

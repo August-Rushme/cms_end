@@ -1,11 +1,14 @@
-package com.august.cms.domain;
+package com.august.cms.req;
 
-import org.springframework.validation.annotation.Validated;
-
-import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Role {
+/**
+ * @author August
+ * @date 2021/9/24 9:53
+ * @lastEditors: August
+ * @version:1.0
+ */
+public class RoleReq extends PageReq {
     private Integer id;
 
     private String name;
@@ -14,9 +17,9 @@ public class Role {
 
     private String remark;
 
-    private LocalDateTime created;
+    private Date created;
 
-    private LocalDateTime updated;
+    private Date updated;
 
     private Integer statu;
 
@@ -52,19 +55,19 @@ public class Role {
         this.remark = remark;
     }
 
-    public LocalDateTime getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
-    public LocalDateTime getUpdated() {
+    public Date getUpdated() {
         return updated;
     }
 
-    public void setUpdated(LocalDateTime updated) {
+    public void setUpdated(Date updated) {
         this.updated = updated;
     }
 
