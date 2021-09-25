@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,11 +46,10 @@ public class RoleService {
         UserRoleExample.Criteria criteria = userRoleExample.createCriteria();
         criteria.andUserIdEqualTo(userId);
         List<UserRole> userRoles = userRoleMapper.selectByExample(userRoleExample);
-        UserRole userRole = userRoles.get(0);
-        RoleExample roleExample = new RoleExample();
-        RoleExample.Criteria criteriaRole = roleExample.createCriteria();
-        criteriaRole.andIdEqualTo(userRole.getRoleId());
-        List<Role> roles = roleMapper.selectByExample(roleExample);
+        List<Role> roles = new ArrayList<>();
+        userRoles.forEach(userRole->{
+            roles.add( roleMapper.selectByPrimaryKey(userRole.getRoleId()));
+        });
         List<RoleResp> roleResps = CopyUtils.copyList(roles, RoleResp.class);
         return  roleResps;
 
@@ -78,7 +78,6 @@ public class RoleService {
         criteria.andNameLike("%" + req.getQuery() + "%");
         PageHelper.startPage(req.getPageNum(), req.getPageSize());
         List<Role> roles = roleMapper.selectByExample(roleExample);
-        System.out.println(roles);
         PageInfo<Role> rolePageInfo = new PageInfo<>(roles);
         PageResp<Role> pageResp = new PageResp<>();
         pageResp.setList(roles);
@@ -94,7 +93,7 @@ public class RoleService {
 
 
     public int update(Role role) {
-        int i = roleMapper.updateByPrimaryKey(role);
+        int i = roleMapper.updateByPrimaryKeySelective(role);
         return i;
     }
 
@@ -131,4 +130,16 @@ public class RoleService {
             roleMenuMapper.insertSelective(roleMenu);
         });
     }
+
+
+    public PageResp<Role> getList(RoleReq req) {
+        PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        List<Role> roles = roleMapper.selectByExample(null);
+        PageInfo<Role> rolePageInfo = new PageInfo<>(roles);
+        PageResp<Role> pageResp = new PageResp<>();
+        pageResp.setList(roles);
+        pageResp.setTotal(rolePageInfo.getTotal());
+        return pageResp;
+    }
+
 }

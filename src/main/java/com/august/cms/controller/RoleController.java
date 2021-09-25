@@ -59,8 +59,16 @@ public class RoleController {
         resp.setData(role);
         return resp;
     }
+    @GetMapping("/list")
+    public CommonResp list(RoleReq req){
+        CommonResp<Object> resp = new CommonResp<>();
+        PageResp<Role> rolePageResp = roleService.getList(req);
+        resp.setData(rolePageResp);
+        return resp;
+    }
     @PostMapping("/list/search")
     public CommonResp searchList(@RequestBody @Validated RoleReq req){
+        System.out.println(req.getQuery());
         CommonResp<Object> resp = new CommonResp<>();
         PageResp<Role> rolePageResp = roleService.searchList(req);
         resp.setData(rolePageResp);

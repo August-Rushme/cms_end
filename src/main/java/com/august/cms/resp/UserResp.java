@@ -1,9 +1,16 @@
-package com.august.cms.domain;
+package com.august.cms.resp;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class UserInfo {
+/**
+ * @author August
+ * @date 2021/9/25 15:03
+ * @lastEditors: August
+ * @version:1.0
+ */
+public class UserResp {
     private Integer id;
 
     private String username;
@@ -16,11 +23,13 @@ public class UserInfo {
 
     private String email;
 
-    private LocalDateTime createdat;
+    private Date createdat;
 
-    private LocalDateTime updatedat;
+    private Date updatedat;
 
     private String statuts;
+
+    private List<RoleResp> roles = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -70,19 +79,19 @@ public class UserInfo {
         this.email = email;
     }
 
-    public LocalDateTime getCreatedat() {
+    public Date getCreatedat() {
         return createdat;
     }
 
-    public void setCreatedat(LocalDateTime createdat) {
+    public void setCreatedat(Date createdat) {
         this.createdat = createdat;
     }
 
-    public LocalDateTime getUpdatedat() {
+    public Date getUpdatedat() {
         return updatedat;
     }
 
-    public void setUpdatedat(LocalDateTime updatedat) {
+    public void setUpdatedat(Date updatedat) {
         this.updatedat = updatedat;
     }
 
@@ -94,22 +103,27 @@ public class UserInfo {
         this.statuts = statuts;
     }
 
+    public List<RoleResp> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleResp> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", username=").append(username);
-        sb.append(", password=").append(password);
-        sb.append(", realname=").append(realname);
-        sb.append(", cellphone=").append(cellphone);
-        sb.append(", email=").append(email);
-        sb.append(", createdat=").append(createdat);
-        sb.append(", updatedat=").append(updatedat);
-        sb.append(", statuts=").append(statuts);
-        sb.append("]");
-        return sb.toString();
+        return "UserReq{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", realname='" + realname + '\'' +
+                ", cellphone='" + cellphone + '\'' +
+                ", email='" + email + '\'' +
+                ", createdat=" + createdat +
+                ", updatedat=" + updatedat +
+                ", statuts='" + statuts + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

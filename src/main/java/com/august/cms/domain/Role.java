@@ -1,11 +1,12 @@
 package com.august.cms.domain;
 
+import com.august.cms.resp.PageResp;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Role {
+public class Role  {
     private Integer id;
 
     private String name;

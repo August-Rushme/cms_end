@@ -1,9 +1,20 @@
-package com.august.cms.domain;
+package com.august.cms.req;
+
+import com.august.cms.domain.Role;
+import com.august.cms.resp.RoleResp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class UserInfo {
+/**
+ * @author August
+ * @date 2021/9/25 14:43
+ * @lastEditors: August
+ * @version:1.0
+ */
+public class UserReq extends PageReq{
     private Integer id;
 
     private String username;
@@ -70,19 +81,19 @@ public class UserInfo {
         this.email = email;
     }
 
-    public LocalDateTime getCreatedat() {
+    public LocalDateTime  getCreatedat() {
         return createdat;
     }
 
-    public void setCreatedat(LocalDateTime createdat) {
+    public void setCreatedat(LocalDateTime  createdat) {
         this.createdat = createdat;
     }
 
-    public LocalDateTime getUpdatedat() {
+    public LocalDateTime  getUpdatedat() {
         return updatedat;
     }
 
-    public void setUpdatedat(LocalDateTime updatedat) {
+    public void setUpdatedat(LocalDateTime  updatedat) {
         this.updatedat = updatedat;
     }
 
@@ -94,22 +105,20 @@ public class UserInfo {
         this.statuts = statuts;
     }
 
+
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", username=").append(username);
-        sb.append(", password=").append(password);
-        sb.append(", realname=").append(realname);
-        sb.append(", cellphone=").append(cellphone);
-        sb.append(", email=").append(email);
-        sb.append(", createdat=").append(createdat);
-        sb.append(", updatedat=").append(updatedat);
-        sb.append(", statuts=").append(statuts);
-        sb.append("]");
-        return sb.toString();
+        return "UserReq{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", realname='" + realname + '\'' +
+                ", cellphone='" + cellphone + '\'' +
+                ", email='" + email + '\'' +
+                ", createdat=" + createdat +
+                ", updatedat=" + updatedat +
+                ", statuts='" + statuts + '\'' +
+                '}';
     }
 }

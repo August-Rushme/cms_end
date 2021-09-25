@@ -116,7 +116,7 @@ public class MenuService {
      * @param menu
      */
     public void updateById(Menu menu) {
-        menuMapper.updateByPrimaryKey(menu);
+        menuMapper.updateByPrimaryKeySelective(menu);
     }
 
 

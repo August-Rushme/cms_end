@@ -100,6 +100,8 @@ public class UserInfoResp<T>{
         this.role = role;
     }
 
+
+
     @Override
     public String toString() {
         return "UserInfoResp{" +

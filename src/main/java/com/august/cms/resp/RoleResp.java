@@ -1,5 +1,6 @@
 package com.august.cms.resp;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,9 +20,9 @@ public class RoleResp {
 
     private String remark;
 
-    private Date created;
+    private LocalDateTime created;
 
-    private Date updated;
+    private LocalDateTime  updated;
 
     private Integer statu;
 
@@ -59,19 +60,19 @@ public class RoleResp {
         this.remark = remark;
     }
 
-    public Date getCreated() {
+    public LocalDateTime  getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
-    public Date getUpdated() {
+    public LocalDateTime  getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(LocalDateTime  updated) {
         this.updated = updated;
     }
 

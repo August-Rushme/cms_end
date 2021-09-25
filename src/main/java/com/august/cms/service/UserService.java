@@ -1,17 +1,14 @@
 package com.august.cms.service;
-import com.august.cms.domain.Menu;
-import com.august.cms.domain.MenuExample;
-import com.august.cms.domain.UserInfo;
-import com.august.cms.domain.UserInfoExample;
+import com.august.cms.domain.*;
 import com.august.cms.exception.BusinessException;
 import com.august.cms.exception.BusinessExceptionCode;
 import com.august.cms.mapper.*;
 import com.august.cms.req.UserLoginReq;
-import com.august.cms.resp.MenusResp;
-import com.august.cms.resp.RoleResp;
-import com.august.cms.resp.UserInfoResp;
-import com.august.cms.resp.UserLoginResp;
+import com.august.cms.req.UserReq;
+import com.august.cms.resp.*;
 import com.august.cms.utils.CopyUtils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -38,6 +35,8 @@ public class UserService {
     MenuMapper menuMapper;
     @Resource
     RoleService roleService;
+    @Resource
+    UserRoleMapper userRoleMapper;
 
 
     /**
@@ -115,7 +114,7 @@ public class UserService {
     }
 
     /**
-     * 获取用户信息
+     * 根据id获取用户信息
      * @param userId
      * @return
      */
@@ -126,9 +125,56 @@ public class UserService {
         criteria.andIdEqualTo(userId);
         List<UserInfo> userInfos = userInfoMapper.selectByExample(userInfoExample);
         List<RoleResp> role = roleService.getRole(userId);
-        System.out.println(role);
         List<UserInfoResp> userInfoResps = CopyUtils.copyList(userInfos, UserInfoResp.class);
-        userInfoResps.get(0).setRole(role);
+        userInfoResps.forEach(u->{
+            u.setRole(role);
+        });
         return userInfoResps;
+    }
+
+    /**
+     * 获取用户列表
+     * @param req
+     * @return
+     */
+    public PageResp<UserResp> getList(UserReq req) {
+        PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        List<UserInfo> usersList = userInfoMapper.selectByExample(null);
+        List<UserResp> users = CopyUtils.copyList(usersList, UserResp.class);
+        users.forEach(u->{
+            u.setRoles(roleService.getRole(u.getId()));
+        });
+        PageInfo<UserResp> userPageInfo = new PageInfo<>(users);
+        PageResp<UserResp> pageResp = new PageResp<>();
+        pageResp.setList(users);
+        pageResp.setTotal(userPageInfo.getTotal());
+        return pageResp;
+    }
+
+    public void save(UserInfo user) {
+        userInfoMapper.insert(user);
+    }
+
+    public void update(UserInfo user) {
+        userInfoMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public void removeByIds(Integer id) {
+        userInfoMapper.deleteByPrimaryKey(id);
+    }
+
+    public void removeUserRoleById(Integer id) {
+        UserRoleExample userRoleExample = new UserRoleExample();
+        UserRoleExample.Criteria criteria = userRoleExample.createCriteria();
+        criteria.andUserIdEqualTo(id);
+        userRoleMapper.deleteByExample(userRoleExample);
+
+    }
+
+
+    public void saveRole(List<UserRole> userRoles) {
+        userRoles.forEach(role->{
+            userRoleMapper.insertSelective(role);
+        });
     }
 }
