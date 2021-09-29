@@ -43,7 +43,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         LOG.info("接口登录拦截：，path：{}", path);
 
         //获取header的token参数
-        String token = request.getHeader("token");
+        String token = request.getHeader("Authorization");
         LOG.info("登录校验开始，token：{}", token);
         if (token == null || token.isEmpty()) {
             LOG.info("token为空，请求被拦截");

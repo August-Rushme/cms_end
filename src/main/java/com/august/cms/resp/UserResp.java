@@ -1,5 +1,6 @@
 package com.august.cms.resp;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,9 +24,9 @@ public class UserResp {
 
     private String email;
 
-    private Date createdat;
+    private LocalDateTime createdat;
 
-    private Date updatedat;
+    private LocalDateTime  updatedat;
 
     private String statuts;
 
@@ -79,19 +80,19 @@ public class UserResp {
         this.email = email;
     }
 
-    public Date getCreatedat() {
+    public LocalDateTime  getCreatedat() {
         return createdat;
     }
 
-    public void setCreatedat(Date createdat) {
+    public void setCreatedat(LocalDateTime  createdat) {
         this.createdat = createdat;
     }
 
-    public Date getUpdatedat() {
+    public LocalDateTime  getUpdatedat() {
         return updatedat;
     }
 
-    public void setUpdatedat(Date updatedat) {
+    public void setUpdatedat(LocalDateTime  updatedat) {
         this.updatedat = updatedat;
     }
 

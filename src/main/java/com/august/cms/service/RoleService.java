@@ -9,6 +9,7 @@ import com.august.cms.req.UserLoginReq;
 import com.august.cms.resp.PageResp;
 import com.august.cms.resp.RoleResp;
 import com.august.cms.utils.CopyUtils;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
@@ -76,12 +77,12 @@ public class RoleService {
         RoleExample.Criteria criteria = roleExample.createCriteria();
         System.out.println(req.getQuery());
         criteria.andNameLike("%" + req.getQuery() + "%");
-        PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        Page<Object> page = PageHelper.startPage(req.getPageNum(), req.getPageSize());
         List<Role> roles = roleMapper.selectByExample(roleExample);
         PageInfo<Role> rolePageInfo = new PageInfo<>(roles);
         PageResp<Role> pageResp = new PageResp<>();
         pageResp.setList(roles);
-        pageResp.setTotal(rolePageInfo.getTotal());
+        pageResp.setTotal(page.getTotal());
         return pageResp;
 
     }
@@ -133,12 +134,12 @@ public class RoleService {
 
 
     public PageResp<Role> getList(RoleReq req) {
-        PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        Page<Object> page = PageHelper.startPage(req.getPageNum(), req.getPageSize());
         List<Role> roles = roleMapper.selectByExample(null);
         PageInfo<Role> rolePageInfo = new PageInfo<>(roles);
         PageResp<Role> pageResp = new PageResp<>();
         pageResp.setList(roles);
-        pageResp.setTotal(rolePageInfo.getTotal());
+        pageResp.setTotal(page.getTotal());
         return pageResp;
     }
 

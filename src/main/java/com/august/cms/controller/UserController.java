@@ -1,9 +1,11 @@
 package com.august.cms.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.august.cms.domain.Role;
 import com.august.cms.domain.UserInfo;
 import com.august.cms.domain.UserRole;
 import com.august.cms.req.RoleIdsReq;
+import com.august.cms.req.RoleReq;
 import com.august.cms.req.UserLoginReq;
 import com.august.cms.req.UserReq;
 import com.august.cms.resp.*;
@@ -48,22 +50,22 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public CommonResp login(@Valid @RequestBody UserLoginReq req) {
+    public CommonResp login(@Validated @RequestBody UserLoginReq req) {
         req.setPassword(DigestUtils.md5DigestAsHex(req.getPassword().getBytes()));
         CommonResp<UserLoginResp> resp = new CommonResp<>();
         UserLoginResp userLoginResp = userService.login(req);
         String token = UUID.randomUUID().toString();
-        LOG.info("生成一个24h的登录token：{}，并放入redis中", token);
+        LOG.info("生成一个8h的登录token：{}，并放入redis中", token);
         userLoginResp.setToken(token);
-        redisTemplate.opsForValue().set(token, JSONObject.toJSONString(userLoginResp), 3600 * 24, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(token, JSONObject.toJSONString(userLoginResp), 3600 * 6, TimeUnit.SECONDS);
         resp.setData(userLoginResp);
         return resp;
     }
     /**
      * 用户菜单
      */
-    @GetMapping("/menu")
-    public CommonResp login(Integer userId){
+    @GetMapping("/menu/{userId}")
+    public CommonResp login(@PathVariable("userId") Integer userId){
         CommonResp<Object> resp = new CommonResp<>();
         List menuList = userService.getMenuList(userId);
         resp.setData(menuList);
@@ -94,14 +96,22 @@ public class UserController {
         resp.setData(userInfo);
         return resp;
     }
-
+    @PostMapping("/list/search")
+    public CommonResp searchList(@RequestBody @Validated UserReq req){
+        System.out.println(req.getQuery());
+        CommonResp<Object> resp = new CommonResp<>();
+        PageResp<UserInfo> userInfoPageResp = userService.searchList(req);
+        resp.setData(userInfoPageResp);
+        return resp;
+    }
     /**
      * 获取用户列表
      * @param req
      * @return
      */
-    @GetMapping("/list")
-    public CommonResp list(UserReq req) {
+    @PostMapping("/list")
+    public CommonResp list(@RequestBody UserReq req) {
+        System.out.println(req);
         CommonResp<Object> resp = new CommonResp<>();
         PageResp<UserResp> rolePageResp = userService.getList(req);
         resp.setData(rolePageResp);

@@ -115,7 +115,8 @@ public class MenuService {
      * 更新菜单
      * @param menu
      */
-    public void updateById(Menu menu) {
+    public void update(Menu menu) {
+        System.out.println(menu);
         menuMapper.updateByPrimaryKeySelective(menu);
     }
 

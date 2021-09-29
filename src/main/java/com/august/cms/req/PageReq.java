@@ -9,9 +9,8 @@ import javax.validation.constraints.NotNull;
  * @version:1.0
  */
 public class PageReq {
-    @NotNull(message = "【页码】不能为空")
     private int pageNum;
-    @NotNull(message = "【每页条数】不能为空")
+
     private int pageSize;
 
     private String query;

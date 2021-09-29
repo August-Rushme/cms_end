@@ -3,10 +3,12 @@ import com.august.cms.domain.*;
 import com.august.cms.exception.BusinessException;
 import com.august.cms.exception.BusinessExceptionCode;
 import com.august.cms.mapper.*;
+import com.august.cms.req.RoleReq;
 import com.august.cms.req.UserLoginReq;
 import com.august.cms.req.UserReq;
 import com.august.cms.resp.*;
 import com.august.cms.utils.CopyUtils;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
@@ -138,8 +140,10 @@ public class UserService {
      * @return
      */
     public PageResp<UserResp> getList(UserReq req) {
-        PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        System.out.println(req);
+        Page<Object> page = PageHelper.startPage(req.getPageNum(), req.getPageSize());
         List<UserInfo> usersList = userInfoMapper.selectByExample(null);
+        System.out.println(usersList);
         List<UserResp> users = CopyUtils.copyList(usersList, UserResp.class);
         users.forEach(u->{
             u.setRoles(roleService.getRole(u.getId()));
@@ -147,7 +151,7 @@ public class UserService {
         PageInfo<UserResp> userPageInfo = new PageInfo<>(users);
         PageResp<UserResp> pageResp = new PageResp<>();
         pageResp.setList(users);
-        pageResp.setTotal(userPageInfo.getTotal());
+        pageResp.setTotal(page.getTotal());
         return pageResp;
     }
 
@@ -177,4 +181,25 @@ public class UserService {
             userRoleMapper.insertSelective(role);
         });
     }
+
+    /**
+     * 搜索
+     * @param req
+     * @return
+     */
+    public PageResp<UserInfo> searchList(UserReq req) {
+        UserInfoExample userInfoExample = new UserInfoExample();
+        UserInfoExample.Criteria criteria = userInfoExample.createCriteria();
+        System.out.println(req.getQuery());
+        criteria.andUsernameLike("%" + req.getQuery() + "%");
+        Page<Object> page = PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        List<UserInfo> userInfos = userInfoMapper.selectByExample(userInfoExample);
+        PageInfo<UserInfo> userInfoPageInfo = new PageInfo<>(userInfos);
+        PageResp<UserInfo> pageResp = new PageResp<>();
+        pageResp.setList(userInfos);
+        pageResp.setTotal(page.getTotal());
+        return pageResp;
+
+    }
+
 }

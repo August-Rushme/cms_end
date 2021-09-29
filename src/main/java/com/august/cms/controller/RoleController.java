@@ -36,13 +36,13 @@ public class RoleController {
     /**
      * 获取角色
      */
-    @PostMapping("/list")
-    public CommonResp getRole(Integer userId){
-        CommonResp<Object> resp = new CommonResp<>();
-        List<RoleResp> role = roleService.getRole(userId);
-        resp.setData(role);
-        return  resp;
-    }
+//    @PostMapping("/list")
+//    public CommonResp getRole(Integer userId){
+//        CommonResp<Object> resp = new CommonResp<>();
+//        List<RoleResp> role = roleService.getRole(userId);
+//        resp.setData(role);
+//        return  resp;
+//    }
 
     /**
      * 获取角色和对应的菜单id
@@ -59,8 +59,8 @@ public class RoleController {
         resp.setData(role);
         return resp;
     }
-    @GetMapping("/list")
-    public CommonResp list(RoleReq req){
+    @PostMapping("/list")
+    public CommonResp list(@RequestBody RoleReq req){
         CommonResp<Object> resp = new CommonResp<>();
         PageResp<Role> rolePageResp = roleService.getList(req);
         resp.setData(rolePageResp);
@@ -108,6 +108,13 @@ public class RoleController {
         resp.setMessage("删除成功");
         return resp;
     }
+
+    /**
+     * 分配权限
+     * @param roleId
+     * @param req
+     * @return
+     */
     @PostMapping("/perm/{roleId}")
     @Transactional
     public CommonResp givePermission(@PathVariable("roleId") Integer roleId, @RequestBody MenuIdsReq req) {

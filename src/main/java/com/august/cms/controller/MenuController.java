@@ -2,6 +2,7 @@ package com.august.cms.controller;
 
 import com.august.cms.Dto.MenuDto;
 import com.august.cms.domain.Menu;
+import com.august.cms.req.MenuReq;
 import com.august.cms.resp.CommonResp;
 import com.august.cms.resp.MenusResp;
 import com.august.cms.service.MenuService;
@@ -32,8 +33,8 @@ public class MenuController {
      * @param userId
      * @return
      */
-    @GetMapping("/list")
-    public CommonResp getMenus(Integer userId){
+    @GetMapping("/list/{userId}")
+    public CommonResp getMenus(@PathVariable("userId") Integer userId){
         CommonResp<Object> resp = new CommonResp<>();
         List<MenuDto> menus = menuService.getCurrentUserMenus(userId);
         resp.setData(menus);
@@ -44,7 +45,7 @@ public class MenuController {
      * 获取所有的菜单信息
      * @return
      */
-    @GetMapping("/menusList")
+    @PostMapping("/menusList")
     public CommonResp getAllMenus(){
         CommonResp<Object> resp = new CommonResp<>();
         List<MenusResp> menusAll = menuService.tree();
@@ -67,11 +68,12 @@ public class MenuController {
         return resp;
     }
     @PostMapping("/update")
-    public CommonResp update(@Validated @RequestBody Menu menu) {
+    public CommonResp update1(@Validated @RequestBody Menu menu) {
+        System.out.println(menu);
         menu.setUpdatedat(LocalDateTime.now());
         CommonResp<Object> resp = new CommonResp<>();
-        menuService.updateById(menu);
-        resp.setMessage("编辑菜单成功");
+        menuService.update(menu);
+        resp.setMessage("编辑成功");
         return resp;
     }
 
