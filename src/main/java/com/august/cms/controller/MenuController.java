@@ -69,7 +69,6 @@ public class MenuController {
     }
     @PostMapping("/update")
     public CommonResp update1(@Validated @RequestBody Menu menu) {
-        System.out.println(menu);
         menu.setUpdatedat(LocalDateTime.now());
         CommonResp<Object> resp = new CommonResp<>();
         menuService.update(menu);

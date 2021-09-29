@@ -48,6 +48,8 @@
 <!--        <table tableName="user_role"/>-->
 <!--        <table tableName="role"/>-->
 <!--        <table tableName="role_menu"/>-->
+<!--            <table tableName="s_goods"/>-->
+<!--           <table tableName="message"/>-->
 
 
     </context>
