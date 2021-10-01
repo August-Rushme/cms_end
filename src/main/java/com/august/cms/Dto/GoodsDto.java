@@ -1,14 +1,15 @@
-package com.august.cms.req;
+package com.august.cms.Dto;
 
-import com.august.cms.resp.PageResp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author August
- * @date 2021/9/29 16:31
+ * @date 2021/9/29 19:04
  * @lastEditors: August
  * @version:1.0
  */
-public class GoodsReq extends PageReq {
+public class GoodsDto {
     private Integer goodsId;
 
     private String goodsName;
@@ -32,6 +33,7 @@ public class GoodsReq extends PageReq {
     private Integer parentId;
 
     private String goodsImg;
+    private List<GoodsDto> children = new ArrayList<>();
 
     public Integer getGoodsId() {
         return goodsId;
@@ -129,25 +131,30 @@ public class GoodsReq extends PageReq {
         this.goodsImg = goodsImg;
     }
 
+    public List<GoodsDto> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<GoodsDto> children) {
+        this.children = children;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", goodsId=").append(goodsId);
-        sb.append(", goodsName=").append(goodsName);
-        sb.append(", type=").append(type);
-        sb.append(", catsId=").append(catsId);
-        sb.append(", goodsPriceOld=").append(goodsPriceOld);
-        sb.append(", goodsPriceNew=").append(goodsPriceNew);
-        sb.append(", goodsDelete=").append(goodsDelete);
-        sb.append(", goodsInfo=").append(goodsInfo);
-        sb.append(", goodsNumber=").append(goodsNumber);
-        sb.append(", goodsSrc=").append(goodsSrc);
-        sb.append(", parentId=").append(parentId);
-        sb.append(", goodsImg=").append(goodsImg);
-        sb.append("]");
-        return sb.toString();
+        return "GoodsDto{" +
+                "goodsId=" + goodsId +
+                ", goodsName='" + goodsName + '\'' +
+                ", type=" + type +
+                ", catsId=" + catsId +
+                ", goodsPriceOld='" + goodsPriceOld + '\'' +
+                ", goodsPriceNew=" + goodsPriceNew +
+                ", goodsDelete=" + goodsDelete +
+                ", goodsInfo='" + goodsInfo + '\'' +
+                ", goodsNumber=" + goodsNumber +
+                ", goodsSrc='" + goodsSrc + '\'' +
+                ", parentId=" + parentId +
+                ", goodsImg='" + goodsImg + '\'' +
+                ", children=" + children +
+                '}';
     }
 }

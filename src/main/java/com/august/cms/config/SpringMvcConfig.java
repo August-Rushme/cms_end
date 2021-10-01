@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @lastEditors: August
  * @version:1.0
  */
-//@Configuration
+@Configuration
 public class SpringMvcConfig implements WebMvcConfigurer {
 
     @Resource

@@ -1,11 +1,13 @@
 package com.august.cms.service;
 
 import com.august.cms.domain.*;
+import com.august.cms.mapper.MenuMapper;
 import com.august.cms.mapper.RoleMapper;
 import com.august.cms.mapper.RoleMenuMapper;
 import com.august.cms.mapper.UserRoleMapper;
 import com.august.cms.req.RoleReq;
 import com.august.cms.req.UserLoginReq;
+import com.august.cms.resp.MenusResp;
 import com.august.cms.resp.PageResp;
 import com.august.cms.resp.RoleResp;
 import com.august.cms.utils.CopyUtils;
@@ -35,6 +37,10 @@ public class RoleService {
     UserRoleMapper userRoleMapper;
     @Resource
     RoleMenuMapper roleMenuMapper;
+    @Resource
+    MenuMapper menuMapper;
+    @Resource
+    MenuService menuService;
 
     /**
      * 获取角色
@@ -62,9 +68,15 @@ public class RoleService {
         return resp;
     }
 
-    public List<Integer> getMenusId(Integer id) {
+    public List<MenusResp> getMenusId(Integer id) {
         List<Integer> menuIds = roleMapper.getMenuIds(id);
-        return  menuIds;
+        MenuExample menuExample = new MenuExample();
+        MenuExample.Criteria criteria = menuExample.createCriteria();
+        criteria.andIdIn(menuIds);
+        List<Menu> menus = menuMapper.selectByExample(menuExample);
+        List<MenusResp> menusResps = CopyUtils.copyList(menus, MenusResp.class);
+        List<MenusResp> treeMenu = menuService.buildTreeMenu(menusResps);
+        return  treeMenu;
     }
 
     /**

@@ -5,6 +5,7 @@ import com.august.cms.domain.RoleMenu;
 import com.august.cms.req.MenuIdsReq;
 import com.august.cms.req.RoleReq;
 import com.august.cms.resp.CommonResp;
+import com.august.cms.resp.MenusResp;
 import com.august.cms.resp.PageResp;
 import com.august.cms.resp.RoleResp;
 import com.august.cms.service.RoleService;
@@ -54,9 +55,8 @@ public class RoleController {
         CommonResp<Object> resp = new CommonResp<>();
         RoleResp role = roleService.getRoleById(id);
         // 获取角色相关联的菜单id
-        List<Integer> menusIds = roleService.getMenusId(id);
-        role.setMenuIds(menusIds);
-        resp.setData(role);
+        List<MenusResp> menus = roleService.getMenusId(id);
+        resp.setData(menus);
         return resp;
     }
     @PostMapping("/list")

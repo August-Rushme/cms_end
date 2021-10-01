@@ -74,8 +74,8 @@ public class UserController {
     /**
      * 用户权限
      */
-    @GetMapping("/authority")
-        public CommonResp getAuthorities(Integer userId){
+    @GetMapping("/authority/{userId}")
+        public CommonResp getAuthorities(@PathVariable("userId") Integer userId){
         CommonResp<Object> resp = new CommonResp<>();
         String userAuthorityInfo = userService.getUserAuthorityInfo(userId);
         String[] authorityInfoArray = StringUtils.tokenizeToStringArray(userAuthorityInfo, ",");
@@ -125,6 +125,7 @@ public class UserController {
      */
     @PostMapping("/save")
     public CommonResp save(@Validated @RequestBody UserInfo user) {
+        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         CommonResp<Object> resp = new CommonResp<>();
         user.setCreatedat(LocalDateTime.now());
         user.setUpdatedat(LocalDateTime.now());

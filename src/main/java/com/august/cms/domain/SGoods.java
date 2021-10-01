@@ -7,8 +7,6 @@ public class SGoods {
 
     private Integer type;
 
-    private String goodsImg;
-
     private Integer catsId;
 
     private String goodsPriceOld;
@@ -24,6 +22,8 @@ public class SGoods {
     private String goodsSrc;
 
     private Integer parentId;
+
+    private String goodsImg;
 
     public Integer getGoodsId() {
         return goodsId;
@@ -47,14 +47,6 @@ public class SGoods {
 
     public void setType(Integer type) {
         this.type = type;
-    }
-
-    public String getGoodsImg() {
-        return goodsImg;
-    }
-
-    public void setGoodsImg(String goodsImg) {
-        this.goodsImg = goodsImg;
     }
 
     public Integer getCatsId() {
@@ -121,6 +113,14 @@ public class SGoods {
         this.parentId = parentId;
     }
 
+    public String getGoodsImg() {
+        return goodsImg;
+    }
+
+    public void setGoodsImg(String goodsImg) {
+        this.goodsImg = goodsImg;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -130,7 +130,6 @@ public class SGoods {
         sb.append(", goodsId=").append(goodsId);
         sb.append(", goodsName=").append(goodsName);
         sb.append(", type=").append(type);
-        sb.append(", goodsImg=").append(goodsImg);
         sb.append(", catsId=").append(catsId);
         sb.append(", goodsPriceOld=").append(goodsPriceOld);
         sb.append(", goodsPriceNew=").append(goodsPriceNew);
@@ -139,6 +138,7 @@ public class SGoods {
         sb.append(", goodsNumber=").append(goodsNumber);
         sb.append(", goodsSrc=").append(goodsSrc);
         sb.append(", parentId=").append(parentId);
+        sb.append(", goodsImg=").append(goodsImg);
         sb.append("]");
         return sb.toString();
     }

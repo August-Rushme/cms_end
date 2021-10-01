@@ -42,6 +42,8 @@ public class MenuService {
         return convert(menuTree);
     }
 
+
+
     /**
      * 实体转DTO
      * @param menuTree
@@ -57,9 +59,11 @@ public class MenuService {
             dto.setSort(m.getSort());
             dto.setType(m.getType());
             dto.setPath(m.getPath());
-            if(m.getChildren().size()>0){}
-            // 子节点调用当前方法进行再次转换
-            dto.setChildren(convert(m.getChildren()));
+            if(m.getChildren().size()>0){
+                // 子节点调用当前方法进行再次转换
+                dto.setChildren(convert(m.getChildren()));
+            }
+
             menusDto.add(dto);
         });
         return menusDto;
@@ -70,7 +74,7 @@ public class MenuService {
      * @param menus
      * @return
      */
-    private List<MenusResp> buildTreeMenu(List<MenusResp> menus) {
+    public List<MenusResp> buildTreeMenu(List<MenusResp> menus) {
         List<MenusResp> finalMenus = new ArrayList<>();
         // 先各自寻找到各自的子节点
         for (MenusResp menu : menus) {

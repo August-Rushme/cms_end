@@ -1,5 +1,8 @@
 package com.august.cms.resp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author August
  * @date 2021/9/29 16:31
@@ -12,8 +15,6 @@ public class GoodsResp {
     private String goodsName;
 
     private Integer type;
-
-    private String goodsImg;
 
     private Integer catsId;
 
@@ -30,6 +31,10 @@ public class GoodsResp {
     private String goodsSrc;
 
     private Integer parentId;
+
+    private String goodsImg;
+
+    private List<GoodsResp> children = new ArrayList<>();
 
     public Integer getGoodsId() {
         return goodsId;
@@ -53,14 +58,6 @@ public class GoodsResp {
 
     public void setType(Integer type) {
         this.type = type;
-    }
-
-    public String getGoodsImg() {
-        return goodsImg;
-    }
-
-    public void setGoodsImg(String goodsImg) {
-        this.goodsImg = goodsImg;
     }
 
     public Integer getCatsId() {
@@ -127,25 +124,38 @@ public class GoodsResp {
         this.parentId = parentId;
     }
 
+    public String getGoodsImg() {
+        return goodsImg;
+    }
+
+    public void setGoodsImg(String goodsImg) {
+        this.goodsImg = goodsImg;
+    }
+
+    public List<GoodsResp> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<GoodsResp> children) {
+        this.children = children;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", goodsId=").append(goodsId);
-        sb.append(", goodsName=").append(goodsName);
-        sb.append(", type=").append(type);
-        sb.append(", goodsImg=").append(goodsImg);
-        sb.append(", catsId=").append(catsId);
-        sb.append(", goodsPriceOld=").append(goodsPriceOld);
-        sb.append(", goodsPriceNew=").append(goodsPriceNew);
-        sb.append(", goodsDelete=").append(goodsDelete);
-        sb.append(", goodsInfo=").append(goodsInfo);
-        sb.append(", goodsNumber=").append(goodsNumber);
-        sb.append(", goodsSrc=").append(goodsSrc);
-        sb.append(", parentId=").append(parentId);
-        sb.append("]");
-        return sb.toString();
+        return "GoodsResp{" +
+                "goodsId=" + goodsId +
+                ", goodsName='" + goodsName + '\'' +
+                ", type=" + type +
+                ", catsId=" + catsId +
+                ", goodsPriceOld='" + goodsPriceOld + '\'' +
+                ", goodsPriceNew=" + goodsPriceNew +
+                ", goodsDelete=" + goodsDelete +
+                ", goodsInfo='" + goodsInfo + '\'' +
+                ", goodsNumber=" + goodsNumber +
+                ", goodsSrc='" + goodsSrc + '\'' +
+                ", parentId=" + parentId +
+                ", goodsImg='" + goodsImg + '\'' +
+                ", children=" + children +
+                '}';
     }
 }

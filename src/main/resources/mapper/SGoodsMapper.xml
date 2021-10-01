@@ -5,7 +5,6 @@
     <id column="goods_id" jdbcType="INTEGER" property="goodsId" />
     <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="type" jdbcType="INTEGER" property="type" />
-    <result column="goods_img" jdbcType="CHAR" property="goodsImg" />
     <result column="cats_id" jdbcType="INTEGER" property="catsId" />
     <result column="goods_price_old" jdbcType="VARCHAR" property="goodsPriceOld" />
     <result column="goods_price_new" jdbcType="INTEGER" property="goodsPriceNew" />
@@ -14,6 +13,9 @@
     <result column="goods_number" jdbcType="INTEGER" property="goodsNumber" />
     <result column="goods_src" jdbcType="VARCHAR" property="goodsSrc" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.august.cms.domain.SGoods">
+    <result column="goods_img" jdbcType="LONGVARCHAR" property="goodsImg" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -74,9 +76,28 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    goods_id, goods_name, `type`, goods_img, cats_id, goods_price_old, goods_price_new, 
-    goods_delete, goods_info, goods_number, goods_src, parent_id
+    goods_id, goods_name, `type`, cats_id, goods_price_old, goods_price_new, goods_delete, 
+    goods_info, goods_number, goods_src, parent_id
   </sql>
+  <sql id="Blob_Column_List">
+    goods_img
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.august.cms.domain.SGoodsExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from s_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="com.august.cms.domain.SGoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -91,9 +112,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from s_goods
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </select>
@@ -109,14 +132,14 @@
   </delete>
   <insert id="insert" parameterType="com.august.cms.domain.SGoods">
     insert into s_goods (goods_id, goods_name, `type`, 
-      goods_img, cats_id, goods_price_old, 
-      goods_price_new, goods_delete, goods_info, 
-      goods_number, goods_src, parent_id
+      cats_id, goods_price_old, goods_price_new, 
+      goods_delete, goods_info, goods_number, 
+      goods_src, parent_id, goods_img
       )
     values (#{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
-      #{goodsImg,jdbcType=CHAR}, #{catsId,jdbcType=INTEGER}, #{goodsPriceOld,jdbcType=VARCHAR}, 
-      #{goodsPriceNew,jdbcType=INTEGER}, #{goodsDelete,jdbcType=INTEGER}, #{goodsInfo,jdbcType=VARCHAR}, 
-      #{goodsNumber,jdbcType=INTEGER}, #{goodsSrc,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}
+      #{catsId,jdbcType=INTEGER}, #{goodsPriceOld,jdbcType=VARCHAR}, #{goodsPriceNew,jdbcType=INTEGER}, 
+      #{goodsDelete,jdbcType=INTEGER}, #{goodsInfo,jdbcType=VARCHAR}, #{goodsNumber,jdbcType=INTEGER}, 
+      #{goodsSrc,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, #{goodsImg,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.august.cms.domain.SGoods">
@@ -130,9 +153,6 @@
       </if>
       <if test="type != null">
         `type`,
-      </if>
-      <if test="goodsImg != null">
-        goods_img,
       </if>
       <if test="catsId != null">
         cats_id,
@@ -158,6 +178,9 @@
       <if test="parentId != null">
         parent_id,
       </if>
+      <if test="goodsImg != null">
+        goods_img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="goodsId != null">
@@ -168,9 +191,6 @@
       </if>
       <if test="type != null">
         #{type,jdbcType=INTEGER},
-      </if>
-      <if test="goodsImg != null">
-        #{goodsImg,jdbcType=CHAR},
       </if>
       <if test="catsId != null">
         #{catsId,jdbcType=INTEGER},
@@ -196,6 +216,9 @@
       <if test="parentId != null">
         #{parentId,jdbcType=INTEGER},
       </if>
+      <if test="goodsImg != null">
+        #{goodsImg,jdbcType=LONGVARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.august.cms.domain.SGoodsExample" resultType="java.lang.Long">
@@ -215,9 +238,6 @@
       </if>
       <if test="record.type != null">
         `type` = #{record.type,jdbcType=INTEGER},
-      </if>
-      <if test="record.goodsImg != null">
-        goods_img = #{record.goodsImg,jdbcType=CHAR},
       </if>
       <if test="record.catsId != null">
         cats_id = #{record.catsId,jdbcType=INTEGER},
@@ -243,7 +263,28 @@
       <if test="record.parentId != null">
         parent_id = #{record.parentId,jdbcType=INTEGER},
       </if>
+      <if test="record.goodsImg != null">
+        goods_img = #{record.goodsImg,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update s_goods
+    set goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      `type` = #{record.type,jdbcType=INTEGER},
+      cats_id = #{record.catsId,jdbcType=INTEGER},
+      goods_price_old = #{record.goodsPriceOld,jdbcType=VARCHAR},
+      goods_price_new = #{record.goodsPriceNew,jdbcType=INTEGER},
+      goods_delete = #{record.goodsDelete,jdbcType=INTEGER},
+      goods_info = #{record.goodsInfo,jdbcType=VARCHAR},
+      goods_number = #{record.goodsNumber,jdbcType=INTEGER},
+      goods_src = #{record.goodsSrc,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      goods_img = #{record.goodsImg,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -253,7 +294,6 @@
     set goods_id = #{record.goodsId,jdbcType=INTEGER},
       goods_name = #{record.goodsName,jdbcType=VARCHAR},
       `type` = #{record.type,jdbcType=INTEGER},
-      goods_img = #{record.goodsImg,jdbcType=CHAR},
       cats_id = #{record.catsId,jdbcType=INTEGER},
       goods_price_old = #{record.goodsPriceOld,jdbcType=VARCHAR},
       goods_price_new = #{record.goodsPriceNew,jdbcType=INTEGER},
@@ -274,9 +314,6 @@
       </if>
       <if test="type != null">
         `type` = #{type,jdbcType=INTEGER},
-      </if>
-      <if test="goodsImg != null">
-        goods_img = #{goodsImg,jdbcType=CHAR},
       </if>
       <if test="catsId != null">
         cats_id = #{catsId,jdbcType=INTEGER},
@@ -302,14 +339,31 @@
       <if test="parentId != null">
         parent_id = #{parentId,jdbcType=INTEGER},
       </if>
+      <if test="goodsImg != null">
+        goods_img = #{goodsImg,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.august.cms.domain.SGoods">
+    update s_goods
+    set goods_name = #{goodsName,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      cats_id = #{catsId,jdbcType=INTEGER},
+      goods_price_old = #{goodsPriceOld,jdbcType=VARCHAR},
+      goods_price_new = #{goodsPriceNew,jdbcType=INTEGER},
+      goods_delete = #{goodsDelete,jdbcType=INTEGER},
+      goods_info = #{goodsInfo,jdbcType=VARCHAR},
+      goods_number = #{goodsNumber,jdbcType=INTEGER},
+      goods_src = #{goodsSrc,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      goods_img = #{goodsImg,jdbcType=LONGVARCHAR}
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.august.cms.domain.SGoods">
     update s_goods
     set goods_name = #{goodsName,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=INTEGER},
-      goods_img = #{goodsImg,jdbcType=CHAR},
       cats_id = #{catsId,jdbcType=INTEGER},
       goods_price_old = #{goodsPriceOld,jdbcType=VARCHAR},
       goods_price_new = #{goodsPriceNew,jdbcType=INTEGER},

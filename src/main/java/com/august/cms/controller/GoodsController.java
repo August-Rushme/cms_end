@@ -1,5 +1,6 @@
 package com.august.cms.controller;
 
+import com.august.cms.Dto.GoodsDto;
 import com.august.cms.Dto.MenuDto;
 import com.august.cms.domain.Role;
 import com.august.cms.domain.SGoods;
@@ -31,14 +32,14 @@ import java.util.List;
 public class GoodsController {
     @Resource
     GoodsService goodsService;
-    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GoodsController.class);
     /**
      * 获取商品列表
      * @param req
      * @return
      */
     @PostMapping("/list")
-    public CommonResp getMenus(@RequestBody GoodsReq req){
+    public CommonResp getGoods(@RequestBody GoodsReq req){
         CommonResp<Object> resp = new CommonResp<>();
         PageResp<GoodsResp> goodsList = goodsService.getGoodsList(req);
         resp.setData(goodsList);
@@ -58,9 +59,16 @@ public class GoodsController {
      * @return
      */
     @PostMapping("/list/sort")
-    public CommonResp getMenusSort(@RequestBody GoodsReq req){
+    public CommonResp getGoodsSort(@RequestBody GoodsReq req){
         CommonResp<Object> resp = new CommonResp<>();
         PageResp<GoodsResp> goodsSortList = goodsService.getGoodsSortList(req);
+        resp.setData(goodsSortList);
+        return resp;
+    }
+    @PostMapping("/list/sort/search")
+    public CommonResp getGoodSortSearch(@RequestBody GoodsReq req){
+        CommonResp<Object> resp = new CommonResp<>();
+        PageResp<GoodsResp> goodsSortList = goodsService.getGoodsSortSearchList(req);
         resp.setData(goodsSortList);
         return resp;
     }
@@ -99,6 +107,13 @@ public class GoodsController {
         CommonResp<Object> resp = new CommonResp<>();
         goodsService.removeByIds(id);
         resp.setMessage("删除成功");
+        return resp;
+    }
+    @GetMapping("/list/tree")
+    public CommonResp getGoodsTree(){
+        CommonResp<Object> resp = new CommonResp<>();
+        List<GoodsDto>  goodsList = goodsService.getGoodsTreeList();
+        resp.setData(goodsList);
         return resp;
     }
 }
